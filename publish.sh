@@ -6,6 +6,7 @@ cd "$(dirname "$0")"
 PY=.venv/bin/python; [ -x "$PY" ] || PY=python3
 $PY build_site.py
 touch site/.nojekyll
+printf "google-site-verification: googleecf88af86ecdaa48.html" > site/googleecf88af86ecdaa48.html
 REMOTE=$(git remote get-url origin)
 WORK=.gh-pages-work
 rm -rf "$WORK"; mkdir -p "$WORK"
