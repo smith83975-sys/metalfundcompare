@@ -70,3 +70,13 @@ pre.log{font-size:12px;background:#f3f5f4;padding:10px;border-radius:8px;overflo
 @media (max-width:760px){.cards{grid-template-columns:1fr 1fr;gap:8px}.card{padding:10px 12px}.card b{font-size:20px}nav{padding-bottom:8px}.bar{padding:6px 18px}.lead{font-size:16px}}
 .ftable td.nm{min-width:190px}.badge{font-size:11px;padding:1px 6px}
 @media (max-width:760px){nav{display:flex;flex-wrap:wrap;gap:2px 14px;width:100%}nav a{margin:0}.bar{justify-content:flex-start}}
+
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.signup-msg{flex-basis:100%;margin:2px 0 0;font-size:14px;min-height:0}
+.signup-msg.ok{color:#9fe3c4;font-weight:600}.signup-msg.err{color:#ffb4a0}
+.news small a{color:#cfe3d8;text-decoration:underline}
+.news-page{background:#13201c;color:#e8efe9;border:0}
+.news-page .signup{max-width:520px}
+.news-page input{padding:10px;border-radius:8px;border:0;flex:1 1 220px}.news-page button{padding:10px 16px;border-radius:8px;border:0;background:var(--gold);color:#fff;font-weight:600;cursor:pointer}
+.news-page small{flex-basis:100%;color:#a9b8b0}.news-page .signup{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.news button{cursor:pointer}.news button:disabled{opacity:.6}

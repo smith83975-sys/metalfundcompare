@@ -25,17 +25,13 @@
 <main class="wrap">
 {% block body %}{% endblock %}
 </main>
-<section class="news wrap" id="newsletter">
+{% if path != '/newsletter/' %}<section class="news wrap" id="newsletter">
   <div>
     <h2>Weekly metal-fund brief</h2>
     <p>Fee cuts, new launches, discount moves and the biggest flows — one short email a week.</p>
   </div>
-  <form onsubmit="return false" aria-label="Newsletter signup (not active yet)">
-    <input type="email" placeholder="you@example.com" disabled aria-disabled="true">
-    <button disabled>Coming soon</button>
-    <small>No email provider is connected yet — nothing is collected.</small>
-  </form>
-</section>
+  {% include "signup_form.html" %}
+</section>{% endif %}
 <footer class="foot">
   <div class="wrap">
     <p><strong>Not investment, tax or legal advice.</strong> MetalFund Compare is an independent information site. Data can be delayed, incomplete or wrong — always check the fund's prospectus and the issuer's website before investing. Past performance does not predict future results. Numbers marked <span class="unv">†</span> come from third-party sources and have not yet been checked against the issuer.</p>
@@ -43,6 +39,7 @@
     <p class="muted">Affiliate disclosure: no affiliate links are active on this site. If added later, they will be labelled and will never affect rankings or data.</p>
   </div>
 </footer>
+<script src="/static/signup.js" defer></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>
