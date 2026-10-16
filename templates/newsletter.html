@@ -6,4 +6,7 @@
   {% with form_id='page' %}{% include "signup_form.html" %}{% endwith %}
 </section>
 <p class="muted small">Free. After subscribing, check your inbox and click the confirmation link. Not investment advice.</p>
+<h2>Past issues</h2>
+{% if issues %}<ul class="issues">{% for it in issues %}<li><a href="/newsletter/{{ it.slug }}/"><b>{{ it.title }}</b></a><span class="muted small"> · {{ it.kicker }} · {{ it.date_label }}</span>{% if it.preview %}<br><span class="small">{{ it.preview }}</span>{% endif %}</li>{% endfor %}</ul>
+{% else %}<p class="muted">No issues yet.</p>{% endif %}
 {% endblock %}

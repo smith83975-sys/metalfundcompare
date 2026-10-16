@@ -169,6 +169,31 @@ def verdict(ts):
     if any(x['bucket'] == 'leveraged' for x in xs): out.append('Leveraged/inverse products reset daily and are generally meant for short holding periods.')
     return out
 
+
+# ---------- newsletter archive (newsletter/issue-NNN.md, auto-discovered) ----------
+import markdown as _md
+def load_issues():
+    out = []
+    for fp in sorted((ROOT/'newsletter').glob('issue-[0-9][0-9][0-9].md')):
+        raw = fp.read_text(); meta = {}; body = raw
+        if raw.startswith('---\n'):
+            fm, body = raw[4:].split('\n---\n', 1)
+            for line in fm.splitlines():
+                if line and not line.startswith((' ', '-')) and ':' in line:
+                    k, v = line.split(':', 1); meta[k.strip()] = v.strip().strip('"')
+        lines = body.strip().splitlines(); kicker = ''
+        if lines and lines[0].startswith('# '): kicker = lines.pop(0)[2:].strip()
+        lines = [l for l in lines if not l.startswith("*You're getting this")]   # email-only footer
+        html_body = _md.markdown('\n'.join(lines), extensions=['extra', 'sane_lists'])
+        html_body = html_body.replace('href="' + SITE_URL + '/', 'href="/')   # make site links relative (rebased later)
+        slug = fp.stem; d = meta.get('date', '')
+        try: dlabel = dt.date.fromisoformat(d).strftime('%b %-d, %Y')
+        except Exception: dlabel = d
+        out.append(dict(slug=slug, num=int(slug.split('-')[1]), title=meta.get('subject', kicker or slug), kicker=kicker or f'Issue #{int(slug.split("-")[1])}',
+                        date=d, date_label=dlabel, data_as_of=meta.get('data_as_of', ''), preview=meta.get('preview', ''), html=html_body))
+    return sorted(out, key=lambda x: x['num'], reverse=True)
+ISSUES = load_issues()
+
 # ---------- render ----------
 env = Environment(loader=FileSystemLoader(ROOT/'templates'), autoescape=select_autoescape(['html']))
 def pct(v, d=2): return '—' if v is None else f"{v:.{d}f}%"
@@ -214,7 +239,9 @@ write('/discounts/', 'discounts.html', rows=[x for x in us if x['pd'] is not Non
 write('/methodology/', 'methodology.html', counts={k: sum(1 for x in F.values() if x['verification'] == k) for k in ('issuer-verified', 'partly verified', 'unverified')},
       log=live.get('log', []), title=f'Methodology & sources | {SITE_NAME}', description='Where every number on MetalFund Compare comes from and how it is checked.')
 write('/disclaimer/', 'disclaimer.html', title=f'Disclaimer | {SITE_NAME}', description='MetalFund Compare is for information only and is not investment, tax or legal advice.')
-write('/newsletter/', 'newsletter.html', title=f'Weekly metal-fund newsletter | {SITE_NAME}', description='Fee cuts, new launches and discount moves in gold and silver funds, once a week.')
+write('/newsletter/', 'newsletter.html', issues=ISSUES, title=f'Weekly metal-fund newsletter | {SITE_NAME}', description='Fee cuts, new launches and discount moves in gold and silver funds, once a week.')
+for it in ISSUES:
+    write(f'/newsletter/{it["slug"]}/', 'issue.html', it=it, title=f"{it['title']} | MetalFund Weekly Brief", description=it['preview'] or it['title'])
 (OUT/'404.html').write_text(rebase(env.get_template('404.html').render(path='/404', title='Page not found', description='', canonical=SITE_URL + '/404')))
 # SEO files
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']

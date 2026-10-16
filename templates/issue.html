@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+<nav class="crumbs"><a href="/newsletter/">Newsletter</a> › {{ it.kicker }}</nav>
+<article class="issue">
+  <p class="kicker">{{ it.kicker }} · {{ it.date_label }}</p>
+  <h1>{{ it.title }}</h1>
+  {% if it.data_as_of %}<p class="muted small">Data as of {{ it.data_as_of }}</p>{% endif %}
+  <div class="issue-body">{{ it.html|safe }}</div>
+</article>
+<p><a href="/newsletter/">← All issues</a></p>
+{% endblock %}

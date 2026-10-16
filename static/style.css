@@ -80,3 +80,9 @@ pre.log{font-size:12px;background:#f3f5f4;padding:10px;border-radius:8px;overflo
 .news-page input{padding:10px;border-radius:8px;border:0;flex:1 1 220px}.news-page button{padding:10px 16px;border-radius:8px;border:0;background:var(--gold);color:#fff;font-weight:600;cursor:pointer}
 .news-page small{flex-basis:100%;color:#a9b8b0}.news-page .signup{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .news button{cursor:pointer}.news button:disabled{opacity:.6}
+
+.issues{list-style:none;padding:0}.issues li{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:10px 0}
+.issue{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 24px;margin:14px 0;max-width:760px}
+.issue h1{margin-top:4px}.kicker{color:var(--gold);font-weight:600;font-size:14px;margin:0}
+.issue-body h2{font-size:19px;border-top:1px solid var(--line);padding-top:14px}.issue-body li{margin:4px 0}.issue-body hr{border:0;border-top:1px solid var(--line);margin:20px 0}
+.issue-body em{color:#4b545d;font-size:14px}
