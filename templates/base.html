@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ canonical }}">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ canonical }}">
+<link rel="stylesheet" href="/static/style.css">
+{% block head %}{% endblock %}
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="/"><span class="logo">◆</span> MetalFund Compare</a>
+    <nav>
+      <a href="/">Funds</a><a href="/compare/">Compare</a><a href="/discounts/">Discounts</a><a href="/tools/fee-drag/">Fee calculator</a><a href="/tax/">Tax guide</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+{% block body %}{% endblock %}
+</main>
+<section class="news wrap" id="newsletter">
+  <div>
+    <h2>Weekly metal-fund brief</h2>
+    <p>Fee cuts, new launches, discount moves and the biggest flows — one short email a week.</p>
+  </div>
+  <form onsubmit="return false" aria-label="Newsletter signup (not active yet)">
+    <input type="email" placeholder="you@example.com" disabled aria-disabled="true">
+    <button disabled>Coming soon</button>
+    <small>No email provider is connected yet — nothing is collected.</small>
+  </form>
+</section>
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Not investment, tax or legal advice.</strong> MetalFund Compare is an independent information site. Data can be delayed, incomplete or wrong — always check the fund's prospectus and the issuer's website before investing. Past performance does not predict future results. Numbers marked <span class="unv">†</span> come from third-party sources and have not yet been checked against the issuer.</p>
+    <p>Fund data compiled {{ DATA_GEN }} · Prices/NAV updated {{ UPDATED }} · <a href="/methodology/">Methodology & sources</a> · <a href="/disclaimer/">Disclaimer</a> · <a href="/newsletter/">Newsletter</a></p>
+    <p class="muted">Affiliate disclosure: no affiliate links are active on this site. If added later, they will be labelled and will never affect rankings or data.</p>
+  </div>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

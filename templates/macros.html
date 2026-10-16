@@ -1,0 +1,14 @@
+{% macro val(v, status, src='') -%}
+{%- if status == 'missing' or v is none -%}<span class="muted">—</span>
+{%- elif status == 'unverified' -%}<span class="unv" title="Unverified (third-party): {{ src }}">{{ v }}†</span>
+{%- else -%}<span title="Source: {{ src }}">{{ v }}</span>{%- endif -%}
+{%- endmacro %}
+{% macro pdv(f) -%}
+{%- if f.pd is none -%}<span class="muted">—</span>
+{%- elif f.pd_flag -%}<span class="unv" title="Computed value looks off (likely NAV/price date mismatch) — needs checking">check†</span>
+{%- elif f.pd_kind == 'indicative' -%}<span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark ({{ f.pd_date }})">≈{{ '%+.2f'|format(f.pd) }}%</span>
+{%- else -%}<span class="{{ 'neg' if f.pd < 0 else 'pos' }}" title="{{ f.pd_src }} ({{ f.pd_date }})">{{ '%+.2f'|format(f.pd) }}%</span>{%- endif -%}
+{%- endmacro %}
+{% macro badge(v) -%}
+<span class="badge b-{{ v|replace(' ','-') }}">{{ v }}</span>
+{%- endmacro %}

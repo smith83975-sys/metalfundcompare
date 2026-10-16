@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% from "macros.html" import pdv %}
+{% block body %}
+<h1>Premium / discount to NAV</h1>
+<p class="lead">How far each fund's market price is from the value of the metal it holds. Closed-end trusts like Sprott's can trade well away from NAV; US physical ETFs normally stay close because authorized participants can create and redeem shares.</p>
+<h2>Issuer-published (closed-end trusts)</h2>
+<div class="tablewrap"><table class="ftable"><thead><tr><th>Fund</th><th class="r">Prem/Disc</th><th>Date</th><th>Source</th></tr></thead><tbody>
+{% for f in rows|sort(attribute='pd') if f.pd_kind=='published' %}<tr><td><a href="/fund/{{ f.slug }}/"><b>{{ f.ticker }}</b></a> {{ f.name }}</td><td class="r">{{ pdv(f) }}</td><td>{{ f.pd_date }}</td><td class="small">{{ f.pd_src }}</td></tr>{% endfor %}
+</tbody></table></div>
+<h2>Indicative: closing price vs NAV (ETFs)</h2>
+<p class="muted small">US metal trusts strike NAV at the metal benchmark earlier in the day, so a 4pm close vs NAV gap mostly reflects metal moves after the benchmark. Shown for transparency only; not a true premium/discount.</p>
+<div class="tablewrap"><table class="ftable"><thead><tr><th>Fund</th><th class="r">Close vs NAV</th><th>Date</th><th>Source</th></tr></thead><tbody>
+{% for f in rows|sort(attribute='pd') if f.pd_kind!='published' %}<tr><td><a href="/fund/{{ f.slug }}/"><b>{{ f.ticker }}</b></a> {{ f.name }}</td><td class="r">{{ pdv(f) }}</td><td>{{ f.pd_date }}</td><td class="small">{{ f.pd_src }}</td></tr>{% endfor %}
+</tbody></table></div>
+<h2>Sprott trusts: history</h2>
+<p class="muted small">History starts from this site's own daily snapshots of Sprott's published figures, so it is short at first.</p>
+<div class="grid2">{% for f, svg in sprott %}<section class="panel"><h3><a href="/fund/{{ f.slug }}/">{{ f.ticker }}</a> {{ pdv(f) }}</h3>{{ svg|safe if svg else '<p class="muted">Not enough history yet.</p>'|safe }}</section>{% endfor %}</div>
+{% endblock %}

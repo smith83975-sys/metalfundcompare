@@ -1,0 +1,45 @@
+{% extends "base.html" %}{% from "macros.html" import val, pdv, badge %}
+{% block body %}
+<nav class="crumbs"><a href="/">Funds</a> › {{ f.ticker }}</nav>
+<h1>{{ f.ticker }} <span class="sub">{{ f.name }}</span></h1>
+<p class="lead">{{ f.bucket_label }} · {{ f.metal }} · {{ f.issuer }} · {{ f.listing }} {{ badge(f.verification) }}</p>
+{% if f.bucket == 'leveraged' %}<div class="warn">Leveraged / inverse product: returns reset daily and can differ sharply from the multiple of the metal or index over longer periods.{% if 'etn' in f.tax_key %} As an ETN it is unsecured debt and carries issuer credit risk.{% endif %}</div>{% elif 'etn' in f.tax_key %}<div class="warn">ETN: unsecured debt of the issuer — you carry the issuer's credit risk.</div>{% endif %}
+
+<div class="grid2">
+<section class="panel">
+  <h2>Key facts</h2>
+  <table class="facts">
+    <tr><th>Expense ratio</th><td>{{ val(f.fee|pct if f.fee is not none else none, f.fee_status, f.expense_ratio_source) }}{% if f.expense_ratio_gross_pct %} <span class="muted">(gross {{ f.expense_ratio_gross_pct }}%)</span>{% endif %}<div class="src">{{ f.expense_ratio_source or 'Not yet sourced' }}</div></td></tr>
+    <tr><th>Assets</th><td>{{ val(f.aum_fmt if f.aum else none, f.aum_status, f.aum_src) }}<div class="src">{{ f.aum_src or 'Not yet sourced' }}</div></td></tr>
+    <tr><th>Inception</th><td>{{ val(f.inception or none, f.inc_status, f.inception_source) }}<div class="src">{{ f.inception_source or '' }}</div></td></tr>
+    {% if f.close %}<tr><th>Last close</th><td>${{ '%.2f'|format(f.close) }}<div class="src">Nasdaq historical data, {{ f.close_date }}</div></td></tr>{% endif %}
+    {% if f.nav %}<tr><th>NAV per share</th><td>${{ '%.2f'|format(f.nav) }}<div class="src">Issuer, {{ f.nav_date }}</div></td></tr>{% endif %}
+    <tr><th>Premium / discount</th><td>{{ pdv(f) }}<div class="src">{{ (f.pd_src ~ ', ' ~ f.pd_date) if f.pd is not none else 'No issuer NAV feed for this fund yet' }}</div></td></tr>
+    {% if f.ounces %}<tr><th>Metal held</th><td>{% for k,v in f.ounces.items() %}{{ '{:,.0f}'.format(v) }} oz {{ k }}{% if not loop.last %}, {% endif %}{% endfor %}<div class="src">Sprott issuer page</div></td></tr>{% endif %}
+    {% if f.dollar_vol %}<tr><th>Avg. daily value traded</th><td>~${{ '{:,.0f}'.format(f.dollar_vol/1e6) }}M<div class="src">Nasdaq, last 30 sessions × last close</div></td></tr>{% endif %}
+    <tr><th>US tax</th><td>{{ f.tax_label }}<div class="src">{{ f.tax_treatment }} — <a href="/tax/#{{ f.tax_key }}">how this works</a></div></td></tr>
+    <tr><th>Official page</th><td>{% if f.official_url %}<a href="{{ f.official_url }}" rel="nofollow noopener" target="_blank">{{ f.issuer }} ↗</a>{% else %}<span class="muted">not confirmed</span>{% endif %}</td></tr>
+  </table>
+  {% if f.notes %}<p class="note">Note: {{ f.notes }}</p>{% endif %}
+</section>
+
+<section class="panel">
+  <h2>What the fee costs you</h2>
+  {% if f.fee is not none %}
+  <p>On <b>$10,000</b>, assuming the metal price stays flat, the {{ f.fee|pct }} fee takes about:</p>
+  <table class="facts">{% for n,d in drags %}<tr><th>{{ n }} year{{ 's' if n>1 }}</th><td>{{ d|money }}</td></tr>{% endfor %}</table>
+  {% if f.fee_status=='unverified' %}<p class="unv small">† Fee is from a third-party source and not yet verified with the issuer.</p>{% endif %}
+  <p><a href="/tools/fee-drag/?f={{ f.ticker }}">Try your own numbers →</a></p>
+  {% else %}<p class="muted">Fee not available yet.</p>{% endif %}
+</section>
+</div>
+
+{% if price_svg %}<section class="panel"><h2>Price, last 12 months</h2>{{ price_svg|safe }}<p class="src">Daily closes, Nasdaq historical data. Data as of {{ f.close_date }}.</p></section>{% endif %}
+{% if disc_svg %}<section class="panel"><h2>{{ 'Premium / discount to NAV' if f.pd_kind=='published' else 'Closing price vs NAV (indicative)' }}</h2>{{ disc_svg|safe }}<p class="src">{% if f.pd_kind=='published' %}{{ f.pd_src }}. History builds up from daily snapshots.{% else %}Nasdaq 4pm close ÷ issuer NAV − 1. US metal trusts strike NAV at the morning/midday metal benchmark, so this gap mostly reflects metal-price moves after the benchmark, not a true premium or discount.{% if f.ticker in ['GLD','GLDM'] %} Backfilled from SSGA's NAV history file.{% endif %}{% endif %}</p></section>{% endif %}
+
+{% if compares %}
+<section><h2>Compare {{ f.ticker }} with</h2>
+<ul class="chips">{% for c in compares %}<li><a href="/compare/{{ c.slug }}/">{{ c.tickers|join(' vs ') }}</a></li>{% endfor %}</ul></section>
+{% endif %}
+<p class="muted small">Data compiled {{ DATA_GEN }}; prices/NAV updated {{ UPDATED }}. Check the prospectus before investing. Not investment advice.</p>
+{% endblock %}

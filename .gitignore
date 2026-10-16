@@ -1,0 +1,6 @@
+.venv/
+raw/
+site/
+__pycache__/
+*.pyc
+.gh-pages-work/

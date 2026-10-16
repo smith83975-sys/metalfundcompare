@@ -1,0 +1,31 @@
+{% extends "base.html" %}{% from "macros.html" import val, pdv, badge %}
+{% block body %}
+<nav class="crumbs"><a href="/">Funds</a> › <a href="/compare/">Compare</a> › {{ c.tickers|join(' vs ') }}</nav>
+<h1>{{ c.tickers|join(' vs ') }}</h1>
+<p class="lead">{% for x in xs %}<a href="/fund/{{ x.slug }}/">{{ x.ticker }}</a> ({{ x.name }}){% if not loop.last %} vs {% endif %}{% endfor %}</p>
+<section class="panel verdict">
+  <h2>The short version</h2>
+  <ul>{% for v in verdict %}<li>{{ v }}</li>{% endfor %}</ul>
+  <p class="muted small">Generated automatically from the data below; not a recommendation.</p>
+</section>
+<div class="tablewrap">
+<table class="ctable">
+  <thead><tr><th></th>{% for x in xs %}<th><a href="/fund/{{ x.slug }}/">{{ x.ticker }}</a></th>{% endfor %}</tr></thead>
+  <tbody>
+  <tr><th>Type</th>{% for x in xs %}<td>{{ x.bucket_label }}</td>{% endfor %}</tr>
+  <tr><th>Metal</th>{% for x in xs %}<td>{{ x.metal }}</td>{% endfor %}</tr>
+  <tr><th>Issuer</th>{% for x in xs %}<td>{{ x.issuer }}</td>{% endfor %}</tr>
+  <tr><th>Expense ratio</th>{% for x in xs %}<td>{{ val(x.fee|pct if x.fee is not none else none, x.fee_status, x.expense_ratio_source) }}</td>{% endfor %}</tr>
+  {% for n in [1,5,10,20] %}{% set i = loop.index0 %}<tr><th>Fee cost, $10k, {{ n }} yr</th>{% for x in xs %}<td>{{ drags[x.ticker][i]|money }}</td>{% endfor %}</tr>{% endfor %}
+  <tr><th>Assets</th>{% for x in xs %}<td>{{ val(x.aum_fmt if x.aum else none, x.aum_status, x.aum_src) }}</td>{% endfor %}</tr>
+  <tr><th>Avg. daily value traded</th>{% for x in xs %}<td>{{ ('~$' ~ '{:,.0f}'.format(x.dollar_vol/1e6) ~ 'M') if x.dollar_vol else '—' }}</td>{% endfor %}</tr>
+  <tr><th>Premium / discount</th>{% for x in xs %}<td>{{ pdv(x) }}</td>{% endfor %}</tr>
+  <tr><th>Inception</th>{% for x in xs %}<td>{{ val(x.inception or none, x.inc_status, x.inception_source) }}</td>{% endfor %}</tr>
+  <tr><th>US tax</th>{% for x in xs %}<td><a href="/tax/#{{ x.tax_key }}">{{ x.tax_label }}</a></td>{% endfor %}</tr>
+  <tr><th>Listing</th>{% for x in xs %}<td>{{ x.listing }}</td>{% endfor %}</tr>
+  <tr><th>Data status</th>{% for x in xs %}<td>{{ badge(x.verification) }}</td>{% endfor %}</tr>
+  </tbody>
+</table>
+</div>
+<p class="muted small">Fee cost assumes a flat metal price and ignores trading costs and taxes. † = third-party figure not yet verified with the issuer. Data compiled {{ DATA_GEN }}; prices/NAV updated {{ UPDATED }}.</p>
+{% endblock %}

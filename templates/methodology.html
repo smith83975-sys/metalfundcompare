@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Methodology &amp; sources</h1>
+<h2>Verification levels</h2>
+<ul>
+<li><b>issuer-verified</b> ({{ counts['issuer-verified'] }} funds): fee, assets and inception checked on the issuer's own website or SEC filings.</li>
+<li><b>partly verified</b> ({{ counts['partly verified'] }}): fee checked against the issuer or SEC filing; some other fields from third parties.</li>
+<li><b>unverified</b> ({{ counts['unverified'] }}): mostly third-party data (e.g. etfdb.com). These numbers are shown with a † and a grey colour.</li>
+</ul>
+<p>When sources disagree, the issuer wins. Examples found while building this site: etfdb listed PSLV at 0.67% and PHYS at 0.41%; Sprott's own pages show MERs of 0.52% and 0.39%. SIVR's sponsor fee is 0.45% gross, reduced to 0.30% by a voluntary waiver the sponsor can end (SEC 10-Q, June 2026).</p>
+<h2>Data sources</h2>
+<ul>
+<li>Expense ratios: issuer fund pages; SEC 10-K/10-Q/424B3 filings (EDGAR).</li>
+<li>Assets &amp; NAV: SSGA NAV history files (GLD, GLDM), iShares product data (IAU, IAUM, SLV, RING, SLVP), Sprott trust pages, Aberdeen fund pages, U.S. Global and Y'all Street pages.</li>
+<li>Prices &amp; volume: Nasdaq historical quotes (daily close).</li>
+<li>Premium/discount: Sprott's published figure for its trusts; otherwise computed as close ÷ issuer NAV − 1 for the same date. Values beyond ±3% for ETFs are flagged "check" because they usually mean a date mismatch. Computed ETF values are labelled <i>indicative</i>: US metal trusts strike NAV at the metal benchmark earlier in the day, so the 4pm close vs NAV gap mostly reflects metal moves after the benchmark.</li>
+</ul>
+<h2>Update schedule</h2>
+<p>A script fetches the feeds at low volume (about 90 requests, ~1 second apart), caches raw responses, appends premium/discount history and rebuilds the site. Last run: {{ UPDATED }}.</p>
+{% if log %}<details><summary>Last update log</summary><pre class="log">{% for l in log %}{{ l }}
+{% endfor %}</pre></details>{% endif %}
+{% endblock %}

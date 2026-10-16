@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>All comparisons</h1>
+<p class="lead">{{ compares|length }} head-to-head pages: popular matchups, plus every pair of US-listed funds with the same metal and structure.</p>
+<h2>Popular</h2>
+<ul class="chips">{% for c in compares if c.popular %}<li><a href="/compare/{{ c.slug }}/">{{ c.tickers|join(' vs ') }}</a></li>{% endfor %}</ul>
+<h2>By group</h2>
+<ul class="chips small">{% for c in compares if not c.popular %}<li><a href="/compare/{{ c.slug }}/">{{ c.tickers|join(' vs ') }}</a></li>{% endfor %}</ul>
+{% endblock %}

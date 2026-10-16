@@ -1,0 +1,55 @@
+{% extends "base.html" %}{% from "macros.html" import val, pdv, badge %}
+{% block head %}<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"{{ SITE_NAME }}","url":"{{ SITE_URL }}/"}</script>{% endblock %}
+{% block body %}
+<section class="hero">
+  <h1>Compare gold, silver &amp; precious-metal funds</h1>
+  <p class="lead">{{ funds|length }} funds side by side: what they hold, what they cost, how big they are, and how the IRS taxes them. Every number links to its source.</p>
+  <div class="cards">
+    {% if cheapest_gold %}<a class="card" href="/fund/{{ cheapest_gold.slug }}/"><span>Lowest-fee physical gold</span><b>{{ cheapest_gold.ticker }}</b><em>{{ cheapest_gold.fee|pct }} a year</em></a>{% endif %}
+    {% if cheapest_silver %}<a class="card" href="/fund/{{ cheapest_silver.slug }}/"><span>Lowest-fee physical silver</span><b>{{ cheapest_silver.ticker }}</b><em>{{ cheapest_silver.fee|pct }} a year</em></a>{% endif %}
+    {% if biggest_disc %}<a class="card" href="/discounts/"><span>Deepest discount to NAV</span><b>{{ biggest_disc.ticker }}</b><em>{{ '%+.2f'|format(biggest_disc.pd) }}% ({{ biggest_disc.pd_date }})</em></a>{% endif %}
+    <a class="card" href="/tools/fee-drag/"><span>Tool</span><b>Fee drag</b><em>What fees cost you over time</em></a>
+  </div>
+</section>
+
+<section>
+  <div class="filters" id="filters">
+    <input id="q" type="search" placeholder="Search ticker or name…" aria-label="Search">
+    <select id="f-metal" aria-label="Metal"><option value="">All metals</option><option>gold</option><option>silver</option><option>platinum</option><option>palladium</option><option value="multi">multi-metal</option></select>
+    <select id="f-type" aria-label="Type"><option value="">All types</option>{% for k,v in BUCKET_LABEL.items() if k!='other' %}<option value="{{ k }}">{{ v }}</option>{% endfor %}</select>
+    <select id="f-tax" aria-label="Tax"><option value="">All tax treatments</option><option value="grantor">Collectibles (28%)</option><option value="pfic">PFIC</option><option value="k1">60/40 K-1</option><option value="ric">Regular fund</option><option value="ric_opt">Option income fund</option><option value="ric_lev">Leveraged fund</option><option value="etn">ETN</option><option value="ca">Canadian</option></select>
+    <label class="chk"><input type="checkbox" id="f-us" checked> US-listed only</label>
+    <span id="count" class="muted"></span>
+  </div>
+  <div class="tablewrap">
+  <table id="funds" class="ftable">
+    <thead><tr>
+      <th data-k="t">Ticker</th><th data-k="n">Fund</th><th data-k="ty">Type</th><th data-k="m">Metal</th>
+      <th data-k="fee" class="r">Fee</th><th data-k="aum" class="r">Assets</th><th data-k="pd" class="r">Prem/Disc</th><th data-k="tax">US tax</th><th data-k="v">Data</th>
+    </tr></thead>
+    <tbody>
+    {% for f in funds %}
+    <tr data-t="{{ f.ticker }}" data-n="{{ f.name }}" data-ty="{{ f.bucket }}" data-m="{{ f.metalkey }}" data-fee="{{ f.fee if f.fee is not none else '' }}" data-aum="{{ f.aum or '' }}" data-pd="{{ f.pd if (f.pd is not none and not f.pd_flag) else '' }}" data-tax="{{ f.tax_key }}" data-v="{{ f.verification }}" data-us="{{ 1 if f.is_us else 0 }}">
+      <td><a href="/fund/{{ f.slug }}/"><b>{{ f.ticker }}</b></a></td>
+      <td class="nm">{{ f.name }}</td>
+      <td>{{ f.bucket_label }}</td>
+      <td>{{ f.metal }}</td>
+      <td class="r">{{ val(f.fee|pct if f.fee is not none else none, f.fee_status, f.expense_ratio_source) }}</td>
+      <td class="r">{{ val(f.aum_fmt if f.aum else none, f.aum_status, f.aum_src) }}</td>
+      <td class="r">{{ pdv(f) }}</td>
+      <td>{{ f.tax_label }}</td>
+      <td>{{ badge(f.verification) }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+  <p class="muted small">Click a column to sort. Fee = stated expense ratio (net where a waiver applies). † = third-party figure, not yet checked against the issuer. Premium/discount: bold = issuer-published (Sprott trusts); ≈ grey = indicative (closing price vs NAV struck earlier at the metal benchmark — not a true premium).</p>
+</section>
+
+<section>
+  <h2>Popular comparisons</h2>
+  <ul class="chips">{% for c in popular %}<li><a href="/compare/{{ c.slug }}/">{{ c.tickers|join(' vs ') }}</a></li>{% endfor %}<li><a href="/compare/">All comparisons →</a></li></ul>
+</section>
+{% endblock %}
+{% block scripts %}<script src="/static/table.js" defer></script>{% endblock %}
