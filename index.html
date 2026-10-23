@@ -1,0 +1,1050 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MetalFund Compare: compare gold, silver &amp; precious-metal ETFs by fee, size and tax</title>
+<meta name="description" content="Free, sourced comparison of 80 gold, silver, platinum and palladium funds: expense ratios, assets, premium/discount to NAV and US tax treatment.">
+<link rel="canonical" href="https://smith83975-sys.github.io/metalfundcompare/">
+<meta property="og:title" content="MetalFund Compare: compare gold, silver &amp; precious-metal ETFs by fee, size and tax">
+<meta property="og:description" content="Free, sourced comparison of 80 gold, silver, platinum and palladium funds: expense ratios, assets, premium/discount to NAV and US tax treatment.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smith83975-sys.github.io/metalfundcompare/">
+<link rel="stylesheet" href="/metalfundcompare/static/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"MetalFund Compare","url":"https://smith83975-sys.github.io/metalfundcompare/"}</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="/metalfundcompare/"><span class="logo">◆</span> MetalFund Compare</a>
+    <nav>
+      <a href="/metalfundcompare/">Funds</a><a href="/metalfundcompare/compare/">Compare</a><a href="/metalfundcompare/discounts/">Discounts</a><a href="/metalfundcompare/tools/fee-drag/">Fee calculator</a><a href="/metalfundcompare/tax/">Tax guide</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+
+<section class="hero">
+  <h1>Compare gold, silver &amp; precious-metal funds</h1>
+  <p class="lead">80 funds side by side: what they hold, what they cost, how big they are, and how the IRS taxes them. Every number links to its source.</p>
+  <div class="cards">
+    <a class="card" href="/metalfundcompare/fund/iaum/"><span>Lowest-fee physical gold</span><b>IAUM</b><em>0.09% a year</em></a>
+    <a class="card" href="/metalfundcompare/fund/sivr/"><span>Lowest-fee physical silver</span><b>SIVR</b><em>0.30% a year</em></a>
+    <a class="card" href="/metalfundcompare/discounts/"><span>Deepest discount to NAV</span><b>PSLV</b><em>-5.15% (2026-10-22)</em></a>
+    <a class="card" href="/metalfundcompare/tools/fee-drag/"><span>Tool</span><b>Fee drag</b><em>What fees cost you over time</em></a>
+  </div>
+</section>
+
+<section>
+  <div class="filters" id="filters">
+    <input id="q" type="search" placeholder="Search ticker or name…" aria-label="Search">
+    <select id="f-metal" aria-label="Metal"><option value="">All metals</option><option>gold</option><option>silver</option><option>platinum</option><option>palladium</option><option value="multi">multi-metal</option></select>
+    <select id="f-type" aria-label="Type"><option value="">All types</option><option value="physical">Physical trust</option><option value="closed-end">Closed-end physical trust</option><option value="hybrid">Hybrid</option><option value="miners">Miners</option><option value="futures">Futures</option><option value="leveraged">Leveraged / inverse</option><option value="income">Income / options</option></select>
+    <select id="f-tax" aria-label="Tax"><option value="">All tax treatments</option><option value="grantor">Collectibles (28%)</option><option value="pfic">PFIC</option><option value="k1">60/40 K-1</option><option value="ric">Regular fund</option><option value="ric_opt">Option income fund</option><option value="ric_lev">Leveraged fund</option><option value="etn">ETN</option><option value="ca">Canadian</option></select>
+    <label class="chk"><input type="checkbox" id="f-us" checked> US-listed only</label>
+    <span id="count" class="muted"></span>
+  </div>
+  <div class="tablewrap">
+  <table id="funds" class="ftable">
+    <thead><tr>
+      <th data-k="t">Ticker</th><th data-k="n">Fund</th><th data-k="ty">Type</th><th data-k="m">Metal</th>
+      <th data-k="fee" class="r">Fee</th><th data-k="aum" class="r">Assets</th><th data-k="pd" class="r">Prem/Disc</th><th data-k="tax">US tax</th><th data-k="v">Data</th>
+    </tr></thead>
+    <tbody>
+    
+    <tr data-t="GLD" data-n="SPDR Gold Shares" data-ty="physical" data-m="gold" data-fee="0.4" data-aum="134370.6" data-pd="-0.551" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gld/"><b>GLD</b></a></td>
+      <td class="nm">SPDR Gold Shares</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: SSGA issuer page (fetched 2026-10-16)">0.40%</span></td>
+      <td class="r"><span title="Source: SSGA NAV history XLSX (Total Net Assets) (as of 2026-10-23)">$134.4B</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-0.55%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="IAU" data-n="iShares Gold Trust" data-ty="physical" data-m="gold" data-fee="0.25" data-aum="60307.6" data-pd="-0.55" data-tax="grantor" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/iau/"><b>IAU</b></a></td>
+      <td class="nm">iShares Gold Trust</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: iShares product-screener JSON (fetched 2026-10-16)">0.25%</span></td>
+      <td class="r"><span title="Source: iShares product-screener JSON (as of 2026-10-22)">$60.3B</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-0.55%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="GLDM" data-n="SPDR Gold MiniShares Trust" data-ty="physical" data-m="gold" data-fee="0.1" data-aum="30301.7" data-pd="-0.509" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gldm/"><b>GLDM</b></a></td>
+      <td class="nm">SPDR Gold MiniShares Trust</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: SSGA issuer page (fetched 2026-10-16)">0.10%</span></td>
+      <td class="r"><span title="Source: SSGA NAV history XLSX (Total Net Assets) (as of 2026-10-23)">$30.3B</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-0.51%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="SLV" data-n="iShares Silver Trust" data-ty="physical" data-m="silver" data-fee="0.5" data-aum="26850.6" data-pd="-2.119" data-tax="grantor" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/slv/"><b>SLV</b></a></td>
+      <td class="nm">iShares Silver Trust</td>
+      <td>Physical trust</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: iShares product-screener JSON (fetched 2026-10-16)">0.50%</span></td>
+      <td class="r"><span title="Source: iShares product-screener JSON (as of 2026-10-23)">$26.9B</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-2.12%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="GDX" data-n="VanEck Gold Miners ETF" data-ty="miners" data-m="gold" data-fee="0.51" data-aum="26420.0" data-pd="" data-tax="ric" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gdx/"><b>GDX</b></a></td>
+      <td class="nm">VanEck Gold Miners ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: VanEck issuer page (fetched 2026-10-16)">0.51%</span></td>
+      <td class="r"><span title="Source: VanEck issuer page (fetched 2026-10-16) ($26.42B as of 2026-10-15)">$26.4B</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="PHYS" data-n="Sprott Physical Gold Trust" data-ty="closed-end" data-m="gold" data-fee="0.39" data-aum="15140.0" data-pd="-2.48" data-tax="pfic" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/phys/"><b>PHYS</b></a></td>
+      <td class="nm">Sprott Physical Gold Trust</td>
+      <td>Closed-end physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Sprott issuer page (fetched 2026-10-16) (MER, as of 2026-10-15)">0.39%</span></td>
+      <td class="r"><span title="Source: Sprott issuer page (Total NAV) (as of 2026-10-22)">$15.1B</span></td>
+      <td class="r"><span class="neg" title="Sprott (published) (2026-10-22)">-2.48%</span></td>
+      <td>PFIC (QEF election)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="PSLV" data-n="Sprott Physical Silver Trust" data-ty="closed-end" data-m="silver" data-fee="0.52" data-aum="11310.0" data-pd="-5.15" data-tax="pfic" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/pslv/"><b>PSLV</b></a></td>
+      <td class="nm">Sprott Physical Silver Trust</td>
+      <td>Closed-end physical trust</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: Sprott issuer page (fetched 2026-10-16) (MER, as of 2026-10-15)">0.52%</span></td>
+      <td class="r"><span title="Source: Sprott issuer page (Total NAV) (as of 2026-10-22)">$11.3B</span></td>
+      <td class="r"><span class="neg" title="Sprott (published) (2026-10-22)">-5.15%</span></td>
+      <td>PFIC (QEF election)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="GDXJ" data-n="VanEck Junior Gold Miners ETF" data-ty="miners" data-m="gold" data-fee="0.52" data-aum="8090.0" data-pd="" data-tax="ric" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gdxj/"><b>GDXJ</b></a></td>
+      <td class="nm">VanEck Junior Gold Miners ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: VanEck issuer page (fetched 2026-10-16)">0.52%</span></td>
+      <td class="r"><span title="Source: VanEck issuer page (fetched 2026-10-16) ($8.09B as of 2026-10-15)">$8.1B</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="IAUM" data-n="iShares Gold Trust Micro" data-ty="physical" data-m="gold" data-fee="0.09" data-aum="7954.6" data-pd="-0.473" data-tax="grantor" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/iaum/"><b>IAUM</b></a></td>
+      <td class="nm">iShares Gold Trust Micro</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: iShares product-screener JSON (fetched 2026-10-16)">0.09%</span></td>
+      <td class="r"><span title="Source: iShares product-screener JSON (as of 2026-10-23)">$8.0B</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-0.47%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="CEF" data-n="Sprott Physical Gold and Silver Trust" data-ty="closed-end" data-m="multi" data-fee="0.48" data-aum="6950.0" data-pd="-4.5" data-tax="pfic" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/cef/"><b>CEF</b></a></td>
+      <td class="nm">Sprott Physical Gold and Silver Trust</td>
+      <td>Closed-end physical trust</td>
+      <td>gold+silver</td>
+      <td class="r"><span title="Source: Sprott issuer page (fetched 2026-10-16) (MER)">0.48%</span></td>
+      <td class="r"><span title="Source: Sprott issuer page (Total NAV) (as of 2026-10-22)">$7.0B</span></td>
+      <td class="r"><span class="neg" title="Sprott (published) (2026-10-22)">-4.50%</span></td>
+      <td>PFIC (QEF election)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="SGOL" data-n="abrdn Physical Gold Shares ETF" data-ty="physical" data-m="gold" data-fee="0.17" data-aum="6890.0" data-pd="-0.519" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/sgol/"><b>SGOL</b></a></td>
+      <td class="nm">abrdn Physical Gold Shares ETF</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: SEC 10-Q for quarter ended 2026-06-30 (filed 2026-08-07): Sponsor fee 0.17% annualized">0.17%</span></td>
+      <td class="r"><span title="Source: Aberdeen fund page (as of 2026-10-23)">$6.9B</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-0.52%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="SIL" data-n="Global X Silver Miners ETF" data-ty="miners" data-m="silver" data-fee="0.65" data-aum="4237.8" data-pd="" data-tax="ric" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/sil/"><b>SIL</b></a></td>
+      <td class="nm">Global X Silver Miners ETF</td>
+      <td>Miners</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: Global X issuer page (fetched 2026-10-16)">0.65%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$4.2B†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="SIVR" data-n="abrdn Physical Silver Shares ETF" data-ty="physical" data-m="silver" data-fee="0.3" data-aum="3810.0" data-pd="-2.131" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/sivr/"><b>SIVR</b></a></td>
+      <td class="nm">abrdn Physical Silver Shares ETF</td>
+      <td>Physical trust</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: SEC 10-Q for quarter ended 2026-06-30 (filed 2026-08-07): gross Sponsor fee 0.45%, net 0.30% after a voluntary 0.15% waiver (issuer page: waiver continues until further notice)">0.30%</span></td>
+      <td class="r"><span title="Source: Aberdeen fund page (as of 2026-10-22)">$3.8B</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-2.13%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="SILJ" data-n="Amplify Junior Silver Miners ETF" data-ty="miners" data-m="silver" data-fee="0.69" data-aum="3384.9" data-pd="" data-tax="ric" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/silj/"><b>SILJ</b></a></td>
+      <td class="nm">Amplify Junior Silver Miners ETF</td>
+      <td>Miners</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: Amplify issuer page (fetched 2026-10-16)">0.69%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$3.4B†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="OUNZ" data-n="VanEck Merk Gold ETF" data-ty="physical" data-m="gold" data-fee="0.25" data-aum="2700.0" data-pd="" data-tax="grantor" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/ounz/"><b>OUNZ</b></a></td>
+      <td class="nm">VanEck Merk Gold ETF</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: VanEck issuer page (fetched 2026-10-16)">0.25%</span></td>
+      <td class="r"><span title="Source: VanEck issuer page ($2.70B as of 2026-10-15)">$2.7B</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="AAAU" data-n="Goldman Sachs Physical Gold ETF" data-ty="physical" data-m="gold" data-fee="0.18" data-aum="2659.1" data-pd="" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/aaau/"><b>AAAU</b></a></td>
+      <td class="nm">Goldman Sachs Physical Gold ETF</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: SEC 10-Q for quarter ended 2026-06-30 (filed 2026-08-07): Sponsor fee 0.18% annualized">0.18%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$2.7B†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="GLTR" data-n="abrdn Physical Precious Metals Basket Shares ETF" data-ty="physical" data-m="multi" data-fee="0.6" data-aum="2460.0" data-pd="-1.18" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gltr/"><b>GLTR</b></a></td>
+      <td class="nm">abrdn Physical Precious Metals Basket Shares ETF</td>
+      <td>Physical trust</td>
+      <td>multi (Au/Ag/Pt/Pd)</td>
+      <td class="r"><span title="Source: SEC 10-Q for quarter ended 2026-06-30 (filed 2026-08-07): Sponsor fee 0.60% annualized">0.60%</span></td>
+      <td class="r"><span title="Source: Aberdeen fund page (as of 2026-10-22)">$2.5B</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-1.18%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="RING" data-n="iShares MSCI Global Gold Miners ETF" data-ty="miners" data-m="gold" data-fee="0.39" data-aum="2186.1" data-pd="-0.358" data-tax="ric" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/ring/"><b>RING</b></a></td>
+      <td class="nm">iShares MSCI Global Gold Miners ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: iShares product-screener JSON (fetched 2026-10-16)">0.39%</span></td>
+      <td class="r"><span title="Source: iShares product-screener JSON (as of 2026-10-22)">$2.2B</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-0.36%</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="PPLT" data-n="abrdn Physical Platinum Shares ETF" data-ty="physical" data-m="platinum" data-fee="0.6" data-aum="1880.0" data-pd="-0.907" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/pplt/"><b>PPLT</b></a></td>
+      <td class="nm">abrdn Physical Platinum Shares ETF</td>
+      <td>Physical trust</td>
+      <td>platinum</td>
+      <td class="r"><span title="Source: SEC 10-Q for quarter ended 2026-06-30 (filed 2026-08-07): Sponsor fee 0.60% annualized">0.60%</span></td>
+      <td class="r"><span title="Source: Aberdeen fund page (as of 2026-10-22)">$1.9B</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-0.91%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="BAR" data-n="GraniteShares Gold Trust" data-ty="physical" data-m="gold" data-fee="0.1749" data-aum="1337.6" data-pd="" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/bar/"><b>BAR</b></a></td>
+      <td class="nm">GraniteShares Gold Trust</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: SEC 10-K for FY ended 2026-06-30 (filed 2026-08-13): Sponsor fee 0.1749% annualized">0.17%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$1.3B†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="AGQ" data-n="ProShares Ultra Silver" data-ty="leveraged" data-m="silver" data-fee="0.95" data-aum="1217.8" data-pd="" data-tax="k1" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/agq/"><b>AGQ</b></a></td>
+      <td class="nm">ProShares Ultra Silver</td>
+      <td>Leveraged / inverse</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: ProShares issuer page (fetched 2026-10-16)">0.95%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$1.2B†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>60/40 futures, K-1</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="GDXU" data-n="MicroSectors Gold Miners 3X Leveraged ETN" data-ty="leveraged" data-m="gold" data-fee="0.95" data-aum="1005.0" data-pd="" data-tax="etn" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gdxu/"><b>GDXU</b></a></td>
+      <td class="nm">MicroSectors Gold Miners 3X Leveraged ETN</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.95%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$1.0B†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>ETN (debt)</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="NUGT" data-n="Direxion Daily Gold Miners Index Bull 2X ETF" data-ty="leveraged" data-m="gold" data-fee="1.13" data-aum="992.8" data-pd="" data-tax="ric_lev" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/nugt/"><b>NUGT</b></a></td>
+      <td class="nm">Direxion Daily Gold Miners Index Bull 2X ETF</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Direxion issuer page (fetched 2026-10-16; net)">1.13%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$992.8M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Leveraged fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="SLVP" data-n="iShares MSCI Global Silver and Metals Miners ETF" data-ty="miners" data-m="multi" data-fee="0.39" data-aum="787.1" data-pd="-0.303" data-tax="ric" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/slvp/"><b>SLVP</b></a></td>
+      <td class="nm">iShares MSCI Global Silver and Metals Miners ETF</td>
+      <td>Miners</td>
+      <td>silver (+other metals)</td>
+      <td class="r"><span title="Source: iShares product-screener JSON (fetched 2026-10-16)">0.39%</span></td>
+      <td class="r"><span title="Source: iShares product-screener JSON (as of 2026-10-22)">$787.1M</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-0.30%</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="UGL" data-n="ProShares Ultra Gold" data-ty="leveraged" data-m="gold" data-fee="0.95" data-aum="719.2" data-pd="" data-tax="k1" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/ugl/"><b>UGL</b></a></td>
+      <td class="nm">ProShares Ultra Gold</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: ProShares issuer page (fetched 2026-10-16)">0.95%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$719.2M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>60/40 futures, K-1</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="IAUI" data-n="NEOS Gold High Income ETF" data-ty="income" data-m="gold" data-fee="0.79" data-aum="652.4" data-pd="" data-tax="ric_opt" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/iaui/"><b>IAUI</b></a></td>
+      <td class="nm">NEOS Gold High Income ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: NEOS issuer page (mgmt fee 0.78%, total 0.79%)">0.79%</span></td>
+      <td class="r"><span title="Source: NEOS issuer page">$652.4M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="SLVR" data-n="Sprott Silver Miners &amp; Physical Silver ETF" data-ty="hybrid" data-m="silver" data-fee="0.65" data-aum="649.5" data-pd="" data-tax="ric" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/slvr/"><b>SLVR</b></a></td>
+      <td class="nm">Sprott Silver Miners &amp; Physical Silver ETF</td>
+      <td>Hybrid</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: Sprott ETFs issuer page (fetched 2026-10-16)">0.65%</span></td>
+      <td class="r"><span title="Source: Sprott ETFs issuer page">$649.5M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="SGDM" data-n="Sprott Gold Miners ETF" data-ty="miners" data-m="gold" data-fee="0.46" data-aum="643.7" data-pd="" data-tax="ric" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/sgdm/"><b>SGDM</b></a></td>
+      <td class="nm">Sprott Gold Miners ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Sprott ETFs issuer page (fetched 2026-10-16) (net total)">0.46%</span></td>
+      <td class="r"><span title="Source: Sprott ETFs issuer page (fetched 2026-10-16)">$643.7M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="IGLD" data-n="FT Vest Gold Strategy Target Income ETF" data-ty="income" data-m="gold" data-fee="0.85" data-aum="595.0" data-pd="" data-tax="ric_opt" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/igld/"><b>IGLD</b></a></td>
+      <td class="nm">FT Vest Gold Strategy Target Income ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: First Trust issuer page (fetched 2026-10-16)">0.85%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$595.0M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="PALL" data-n="abrdn Physical Palladium Shares ETF" data-ty="physical" data-m="palladium" data-fee="0.6" data-aum="550.87" data-pd="-0.624" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/pall/"><b>PALL</b></a></td>
+      <td class="nm">abrdn Physical Palladium Shares ETF</td>
+      <td>Physical trust</td>
+      <td>palladium</td>
+      <td class="r"><span title="Source: SEC 10-Q for quarter ended 2026-06-30 (filed 2026-08-07): Sponsor fee 0.60% annualized">0.60%</span></td>
+      <td class="r"><span title="Source: Aberdeen fund page (as of 2026-10-22)">$550.9M</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-0.62%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="SPPP" data-n="Sprott Physical Platinum and Palladium Trust" data-ty="closed-end" data-m="multi" data-fee="0.78" data-aum="477.24" data-pd="-4.44" data-tax="pfic" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/sppp/"><b>SPPP</b></a></td>
+      <td class="nm">Sprott Physical Platinum and Palladium Trust</td>
+      <td>Closed-end physical trust</td>
+      <td>platinum+palladium</td>
+      <td class="r"><span title="Source: Sprott issuer page (fetched 2026-10-16) (MER)">0.78%</span></td>
+      <td class="r"><span title="Source: Sprott issuer page (Total NAV) (as of 2026-10-22)">$477.2M</span></td>
+      <td class="r"><span class="neg" title="Sprott (published) (2026-10-22)">-4.44%</span></td>
+      <td>PFIC (QEF election)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="FGDL" data-n="Franklin Responsibly Sourced Gold ETF" data-ty="physical" data-m="gold" data-fee="0.15" data-aum="432.7" data-pd="" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/fgdl/"><b>FGDL</b></a></td>
+      <td class="nm">Franklin Responsibly Sourced Gold ETF</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: SEC 10-Q (filed 2026-08-14): Sponsor fee 0.15% of NAV">0.15%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$432.7M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="SLVO" data-n="UBS ETRACS Silver Shares Covered Call ETN" data-ty="income" data-m="silver" data-fee="0.65" data-aum="401.0" data-pd="" data-tax="etn_cpn" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/slvo/"><b>SLVO</b></a></td>
+      <td class="nm">UBS ETRACS Silver Shares Covered Call ETN</td>
+      <td>Income / options</td>
+      <td>silver</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.65%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$401.0M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>ETN with coupons</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="JNUG" data-n="Direxion Daily Junior Gold Miners Index Bull 2X ETF" data-ty="leveraged" data-m="gold" data-fee="1.03" data-aum="396.2" data-pd="" data-tax="ric_lev" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/jnug/"><b>JNUG</b></a></td>
+      <td class="nm">Direxion Daily Junior Gold Miners Index Bull 2X ETF</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Direxion issuer page (fetched 2026-10-16; net)">1.03%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$396.2M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Leveraged fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="SGDJ" data-n="Sprott Junior Gold Miners ETF" data-ty="miners" data-m="gold" data-fee="0.5" data-aum="323.4" data-pd="" data-tax="ric" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/sgdj/"><b>SGDJ</b></a></td>
+      <td class="nm">Sprott Junior Gold Miners ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Sprott ETFs issuer page (fetched 2026-10-16) (net total)">0.50%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$323.4M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="GDXY" data-n="YieldMax Gold Miners Option Income Strategy ETF" data-ty="income" data-m="gold" data-fee="1.0" data-aum="294.2" data-pd="" data-tax="ric_opt" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gdxy/"><b>GDXY</b></a></td>
+      <td class="nm">YieldMax Gold Miners Option Income Strategy ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: YieldMax issuer page (gross)">1.00%</span></td>
+      <td class="r"><span title="Source: YieldMax issuer page">$294.2M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="DGP" data-n="DB Gold Double Long ETN" data-ty="leveraged" data-m="gold" data-fee="0.75" data-aum="235.5" data-pd="" data-tax="etn" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/dgp/"><b>DGP</b></a></td>
+      <td class="nm">DB Gold Double Long ETN</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.75%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$235.5M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>ETN (debt)</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="DBP" data-n="Invesco DB Precious Metals Fund" data-ty="futures" data-m="multi" data-fee="0.77" data-aum="218.3" data-pd="" data-tax="k1" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/dbp/"><b>DBP</b></a></td>
+      <td class="nm">Invesco DB Precious Metals Fund</td>
+      <td>Futures</td>
+      <td>gold+silver</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.77%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$218.3M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>60/40 futures, K-1</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="GOAU" data-n="U.S. Global GO GOLD and Precious Metal Miners ETF" data-ty="miners" data-m="gold" data-fee="0.6" data-aum="187.6" data-pd="" data-tax="ric" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/goau/"><b>GOAU</b></a></td>
+      <td class="nm">U.S. Global GO GOLD and Precious Metal Miners ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: U.S. Global issuer page (data as of 2026-10-14)">0.60%</span></td>
+      <td class="r"><span title="Source: U.S. Global issuer page (as of 2026-10-21)">$187.6M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="GLDI" data-n="UBS ETRACS Gold Shares Covered Call ETN" data-ty="income" data-m="gold" data-fee="0.65" data-aum="181.0" data-pd="" data-tax="etn_cpn" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gldi/"><b>GLDI</b></a></td>
+      <td class="nm">UBS ETRACS Gold Shares Covered Call ETN</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.65%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$181.0M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>ETN with coupons</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="PLTM" data-n="GraniteShares Platinum Trust" data-ty="physical" data-m="platinum" data-fee="0.5" data-aum="171.4" data-pd="" data-tax="grantor" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/pltm/"><b>PLTM</b></a></td>
+      <td class="nm">GraniteShares Platinum Trust</td>
+      <td>Physical trust</td>
+      <td>platinum</td>
+      <td class="r"><span title="Source: SEC 10-K for FY ended 2026-06-30 (filed 2026-08-13): Sponsor fee 0.50% annualized">0.50%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$171.4M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="GBUG" data-n="Sprott Active Gold &amp; Silver Miners ETF" data-ty="miners" data-m="multi" data-fee="0.9" data-aum="168.4" data-pd="" data-tax="ric" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gbug/"><b>GBUG</b></a></td>
+      <td class="nm">Sprott Active Gold &amp; Silver Miners ETF</td>
+      <td>Miners</td>
+      <td>gold+silver</td>
+      <td class="r"><span title="Source: Sprott ETFs issuer page (fetched 2026-10-16) (net total; footnote mentions 0.89% rate)">0.90%</span></td>
+      <td class="r"><span title="Source: Sprott ETFs issuer page (fetched 2026-10-16)">$168.4M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="KGLD" data-n="Kurv Gold Enhanced Income ETF" data-ty="income" data-m="gold" data-fee="0.99" data-aum="161.8" data-pd="" data-tax="ric_opt" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/kgld/"><b>KGLD</b></a></td>
+      <td class="nm">Kurv Gold Enhanced Income ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Kurv issuer page">0.99%</span></td>
+      <td class="r"><span title="Source: Kurv issuer page">$161.8M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="GDXD" data-n="MicroSectors Gold Miners -3X Inverse Leveraged ETN" data-ty="leveraged" data-m="gold" data-fee="0.95" data-aum="158.9" data-pd="" data-tax="etn" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gdxd/"><b>GDXD</b></a></td>
+      <td class="nm">MicroSectors Gold Miners -3X Inverse Leveraged ETN</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.95%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$158.9M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>ETN (debt)</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="GOEX" data-n="Global X Gold Explorers ETF" data-ty="miners" data-m="gold" data-fee="0.65" data-aum="118.9" data-pd="" data-tax="ric" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/goex/"><b>GOEX</b></a></td>
+      <td class="nm">Global X Gold Explorers ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Global X issuer page (fetched 2026-10-16)">0.65%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$118.9M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="KSLV" data-n="Kurv Silver Enhanced Income ETF" data-ty="income" data-m="silver" data-fee="0.99" data-aum="111.5" data-pd="" data-tax="ric_opt" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/kslv/"><b>KSLV</b></a></td>
+      <td class="nm">Kurv Silver Enhanced Income ETF</td>
+      <td>Income / options</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: Kurv issuer page">0.99%</span></td>
+      <td class="r"><span title="Source: Kurv issuer page">$111.5M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="GLL" data-n="ProShares UltraShort Gold" data-ty="leveraged" data-m="gold" data-fee="0.95" data-aum="96.1" data-pd="" data-tax="k1" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gll/"><b>GLL</b></a></td>
+      <td class="nm">ProShares UltraShort Gold</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: ProShares issuer page (fetched 2026-10-16)">0.95%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$96.1M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>60/40 futures, K-1</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="SHNY" data-n="MicroSectors Gold 3X Leveraged ETN" data-ty="leveraged" data-m="gold" data-fee="0.95" data-aum="95.3" data-pd="" data-tax="etn" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/shny/"><b>SHNY</b></a></td>
+      <td class="nm">MicroSectors Gold 3X Leveraged ETN</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.95%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$95.3M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>ETN (debt)</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="DUST" data-n="Direxion Daily Gold Miners Index Bear 2X ETF" data-ty="leveraged" data-m="gold" data-fee="0.99" data-aum="89.1" data-pd="" data-tax="ric_lev" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/dust/"><b>DUST</b></a></td>
+      <td class="nm">Direxion Daily Gold Miners Index Bear 2X ETF</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Direxion issuer page (fetched 2026-10-16; net) gross 1.04">0.99%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$89.1M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Leveraged fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="GDXW" data-n="Roundhill Gold Miners WeeklyPay ETF" data-ty="income" data-m="gold" data-fee="0.99" data-aum="82.4" data-pd="" data-tax="ric_opt" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gdxw/"><b>GDXW</b></a></td>
+      <td class="nm">Roundhill Gold Miners WeeklyPay ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Roundhill issuer page (gross)">0.99%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$82.4M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="SLJY" data-n="Amplify SILJ Junior Silver Miners Covered Call ETF" data-ty="income" data-m="silver" data-fee="0.76" data-aum="72.6" data-pd="" data-tax="ric_opt" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/sljy/"><b>SLJY</b></a></td>
+      <td class="nm">Amplify SILJ Junior Silver Miners Covered Call ETF</td>
+      <td>Income / options</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: Amplify issuer page (fetched 2026-10-16)">0.76%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$72.6M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="ZSL" data-n="ProShares UltraShort Silver" data-ty="leveraged" data-m="silver" data-fee="0.95" data-aum="71.3" data-pd="" data-tax="k1" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/zsl/"><b>ZSL</b></a></td>
+      <td class="nm">ProShares UltraShort Silver</td>
+      <td>Leveraged / inverse</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: ProShares issuer page (fetched 2026-10-16)">0.95%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$71.3M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>60/40 futures, K-1</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="BGLD" data-n="FT Vest Gold Strategy Quarterly Buffer ETF" data-ty="income" data-m="gold" data-fee="0.91" data-aum="53.2" data-pd="" data-tax="ric_opt" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/bgld/"><b>BGLD</b></a></td>
+      <td class="nm">FT Vest Gold Strategy Quarterly Buffer ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: First Trust issuer page (fetched 2026-10-16)">0.91%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$53.2M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="JDST" data-n="Direxion Daily Junior Gold Miners Index Bear 2X ETF" data-ty="leveraged" data-m="gold" data-fee="0.92" data-aum="34.7" data-pd="" data-tax="ric_lev" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/jdst/"><b>JDST</b></a></td>
+      <td class="nm">Direxion Daily Junior Gold Miners Index Bear 2X ETF</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Direxion issuer page (fetched 2026-10-16; net)">0.92%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$34.7M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Leveraged fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="YGLD" data-n="Simplify Gold Strategy ETF" data-ty="income" data-m="gold" data-fee="0.53" data-aum="32.6" data-pd="" data-tax="ric_opt" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/ygld/"><b>YGLD</b></a></td>
+      <td class="nm">Simplify Gold Strategy ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Simplify issuer page">0.53%</span></td>
+      <td class="r"><span title="Source: Simplify issuer page">$32.6M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="USLV" data-n="Direxion Daily Silver Bull 2X ETF" data-ty="leveraged" data-m="silver" data-fee="1.1" data-aum="25.7" data-pd="" data-tax="ric_lev" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/uslv/"><b>USLV</b></a></td>
+      <td class="nm">Direxion Daily Silver Bull 2X ETF</td>
+      <td>Leveraged / inverse</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: Direxion issuer page (fetched 2026-10-16; net) gross 1.12">1.10%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$25.7M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Leveraged fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="AUMI" data-n="Themes Gold Miners ETF" data-ty="miners" data-m="gold" data-fee="0.35" data-aum="23.0" data-pd="" data-tax="ric" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/aumi/"><b>AUMI</b></a></td>
+      <td class="nm">Themes Gold Miners ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Themes issuer page (fetched 2026-10-16)">0.35%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$23.0M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="GOLI" data-n="Defiance Gold Enhanced Options Income ETF" data-ty="income" data-m="gold" data-fee="1.04" data-aum="22.4" data-pd="" data-tax="ric_opt" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/goli/"><b>GOLI</b></a></td>
+      <td class="nm">Defiance Gold Enhanced Options Income ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Defiance issuer page (gross)">1.04%</span></td>
+      <td class="r"><span title="Source: Defiance issuer page">$22.4M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="GLDW" data-n="Roundhill Gold WeeklyPay ETF" data-ty="income" data-m="gold" data-fee="0.99" data-aum="18.4" data-pd="" data-tax="ric_opt" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gldw/"><b>GLDW</b></a></td>
+      <td class="nm">Roundhill Gold WeeklyPay ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Roundhill issuer page (gross)">0.99%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$18.4M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="DULL" data-n="MicroSectors Gold -3X Inverse Leveraged ETN" data-ty="leveraged" data-m="gold" data-fee="0.95" data-aum="17.3" data-pd="" data-tax="etn" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/dull/"><b>DULL</b></a></td>
+      <td class="nm">MicroSectors Gold -3X Inverse Leveraged ETN</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.95%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$17.3M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>ETN (debt)</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="UGLD" data-n="Direxion Daily Gold Bull 2X ETF" data-ty="leveraged" data-m="gold" data-fee="1.07" data-aum="13.4" data-pd="" data-tax="ric_lev" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/ugld/"><b>UGLD</b></a></td>
+      <td class="nm">Direxion Daily Gold Bull 2X ETF</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Direxion issuer page (fetched 2026-10-16; net) gross 1.09">1.07%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$13.4M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Leveraged fund (1099)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="USG" data-n="USCF Gold Strategy Plus Income Fund ETF" data-ty="income" data-m="gold" data-fee="0.45" data-aum="9.5" data-pd="" data-tax="ric_opt" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/usg/"><b>USG</b></a></td>
+      <td class="nm">USCF Gold Strategy Plus Income Fund ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.45%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$9.5M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="SLVX" data-n="Nicholas Silver Income ETF" data-ty="income" data-m="silver" data-fee="" data-aum="8.8" data-pd="" data-tax="ric_opt" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/slvx/"><b>SLVX</b></a></td>
+      <td class="nm">Nicholas Silver Income ETF</td>
+      <td>Income / options</td>
+      <td>silver</td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): stockanalysis covered-call list via search (third-party)">$8.8M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="YSAU" data-n="Y&#39;all Street Physical Gold ETF" data-ty="physical" data-m="gold" data-fee="0.24" data-aum="6.9" data-pd="-0.263" data-tax="grantor" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/ysau/"><b>YSAU</b></a></td>
+      <td class="nm">Y&#39;all Street Physical Gold ETF</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Y&#39;all Street issuer page + SEC 424B3 (2026-07-13): 0.24%">0.24%</span></td>
+      <td class="r"><span title="Source: Y&#39;all Street issuer page (as of 2026-10-22)">$6.9M</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-0.26%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="AUAU" data-n="Global X Gold Miners ETF" data-ty="miners" data-m="gold" data-fee="0.35" data-aum="6.0" data-pd="" data-tax="ric" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/auau/"><b>AUAU</b></a></td>
+      <td class="nm">Global X Gold Miners ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span title="Source: Global X issuer page (fetched 2026-10-16)">0.35%</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$6.0M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="NUGY" data-n="GraniteShares YieldBOOST Gold Miners ETF" data-ty="income" data-m="gold" data-fee="1.07" data-aum="5.5" data-pd="" data-tax="ric_opt" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/nugy/"><b>NUGY</b></a></td>
+      <td class="nm">GraniteShares YieldBOOST Gold Miners ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">1.07%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$5.5M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="GLDN" data-n="Nicholas Gold Income ETF" data-ty="income" data-m="gold" data-fee="" data-aum="4.3" data-pd="" data-tax="ric_opt" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gldn/"><b>GLDN</b></a></td>
+      <td class="nm">Nicholas Gold Income ETF</td>
+      <td>Income / options</td>
+      <td>gold</td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): stockanalysis covered-call list via search (third-party)">$4.3M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="YSAG" data-n="Y&#39;all Street Physical Silver ETF" data-ty="physical" data-m="silver" data-fee="0.39" data-aum="2.8" data-pd="-1.694" data-tax="grantor" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/ysag/"><b>YSAG</b></a></td>
+      <td class="nm">Y&#39;all Street Physical Silver ETF</td>
+      <td>Physical trust</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: Y&#39;all Street issuer page + SEC 424B3 (2026-07-13): 0.39%">0.39%</span></td>
+      <td class="r"><span title="Source: Y&#39;all Street issuer page (as of 2026-10-22)">$2.8M</span></td>
+      <td class="r"><span class="ind" title="Indicative only: 4pm closing price vs NAV struck earlier in the day at the metal benchmark, so it mostly reflects metal moves after the benchmark (2026-10-22)">≈-1.69%</span></td>
+      <td>Collectibles (28% max LT)</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="SLVI" data-n="NEOS Silver High Income ETF" data-ty="income" data-m="silver" data-fee="0.78" data-aum="1.8" data-pd="" data-tax="ric_opt" data-v="issuer-verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/slvi/"><b>SLVI</b></a></td>
+      <td class="nm">NEOS Silver High Income ETF</td>
+      <td>Income / options</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: NEOS issuer page">0.78%</span></td>
+      <td class="r"><span title="Source: NEOS issuer page">$1.8M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-issuer-verified">issuer-verified</span></td>
+    </tr>
+    
+    <tr data-t="DGZ" data-n="DB Gold Short ETN" data-ty="leveraged" data-m="gold" data-fee="0.75" data-aum="1.1" data-pd="" data-tax="etn" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/dgz/"><b>DGZ</b></a></td>
+      <td class="nm">DB Gold Short ETN</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.75%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$1.1M†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>ETN (debt)</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="SLVY" data-n="FT Vest Silver Strategy &amp; Target Income ETF" data-ty="income" data-m="silver" data-fee="0.85" data-aum="1.0" data-pd="" data-tax="ric_opt" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/slvy/"><b>SLVY</b></a></td>
+      <td class="nm">FT Vest Silver Strategy &amp; Target Income ETF</td>
+      <td>Income / options</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: First Trust issuer page (fetched 2026-10-16)">0.85%</span></td>
+      <td class="r"><span title="Source: First Trust issuer page">$1.0M</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Fund, option income</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="DZZ" data-n="DB Gold Double Short ETN" data-ty="leveraged" data-m="gold" data-fee="0.75" data-aum="0.9" data-pd="" data-tax="etn" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/dzz/"><b>DZZ</b></a></td>
+      <td class="nm">DB Gold Double Short ETN</td>
+      <td>Leveraged / inverse</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">0.75%†</span></td>
+      <td class="r"><span class="unv" title="Unverified (third-party): etfdb.com list page, data as of 2026-10-15 (third-party)">$900K†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>ETN (debt)</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="GDE" data-n="WisdomTree Efficient Gold Plus Equity Strategy Fund" data-ty="hybrid" data-m="gold" data-fee="0.2" data-aum="" data-pd="" data-tax="ric" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gde/"><b>GDE</b></a></td>
+      <td class="nm">WisdomTree Efficient Gold Plus Equity Strategy Fund</td>
+      <td>Hybrid</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): web search snippet of issuer page (page 403 from box)">0.20%†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="GDMN" data-n="WisdomTree Efficient Gold Plus Gold Miners Strategy Fund" data-ty="hybrid" data-m="gold" data-fee="0.45" data-aum="" data-pd="" data-tax="ric" data-v="unverified" data-us="1">
+      <td><a href="/metalfundcompare/fund/gdmn/"><b>GDMN</b></a></td>
+      <td class="nm">WisdomTree Efficient Gold Plus Gold Miners Strategy Fund</td>
+      <td>Hybrid</td>
+      <td>gold</td>
+      <td class="r"><span class="unv" title="Unverified (third-party): web search snippet of issuer page (page 403 from box)">0.45%†</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="AGMI" data-n="Themes Silver Miners ETF" data-ty="miners" data-m="silver" data-fee="0.35" data-aum="" data-pd="" data-tax="ric" data-v="partly verified" data-us="1">
+      <td><a href="/metalfundcompare/fund/agmi/"><b>AGMI</b></a></td>
+      <td class="nm">Themes Silver Miners ETF</td>
+      <td>Miners</td>
+      <td>silver</td>
+      <td class="r"><span title="Source: Themes issuer page (fetched 2026-10-16)">0.35%</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Regular fund (1099)</td>
+      <td><span class="badge b-partly-verified">partly verified</span></td>
+    </tr>
+    
+    <tr data-t="CGL" data-n="iShares Gold Bullion ETF" data-ty="physical" data-m="gold" data-fee="" data-aum="" data-pd="" data-tax="ca" data-v="unverified" data-us="0">
+      <td><a href="/metalfundcompare/fund/cgl/"><b>CGL</b></a></td>
+      <td class="nm">iShares Gold Bullion ETF</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Canadian-listed</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="SVR" data-n="iShares Silver Bullion ETF" data-ty="physical" data-m="silver" data-fee="" data-aum="" data-pd="" data-tax="ca" data-v="unverified" data-us="0">
+      <td><a href="/metalfundcompare/fund/svr/"><b>SVR</b></a></td>
+      <td class="nm">iShares Silver Bullion ETF</td>
+      <td>Physical trust</td>
+      <td>silver</td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Canadian-listed</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="XGD" data-n="iShares S&amp;P/TSX Global Gold Index ETF" data-ty="miners" data-m="gold" data-fee="" data-aum="" data-pd="" data-tax="ca" data-v="unverified" data-us="0">
+      <td><a href="/metalfundcompare/fund/xgd/"><b>XGD</b></a></td>
+      <td class="nm">iShares S&amp;P/TSX Global Gold Index ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Canadian-listed</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="ZGD" data-n="BMO Equal Weight Global Gold Index ETF" data-ty="miners" data-m="gold" data-fee="" data-aum="" data-pd="" data-tax="ca" data-v="unverified" data-us="0">
+      <td><a href="/metalfundcompare/fund/zgd/"><b>ZGD</b></a></td>
+      <td class="nm">BMO Equal Weight Global Gold Index ETF</td>
+      <td>Miners</td>
+      <td>gold</td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Canadian-listed</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    <tr data-t="MNT" data-n="Royal Canadian Mint Gold Reserves (ETR)" data-ty="physical" data-m="gold" data-fee="" data-aum="" data-pd="" data-tax="ca" data-v="unverified" data-us="0">
+      <td><a href="/metalfundcompare/fund/mnt/"><b>MNT</b></a></td>
+      <td class="nm">Royal Canadian Mint Gold Reserves (ETR)</td>
+      <td>Physical trust</td>
+      <td>gold</td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td class="r"><span class="muted">—</span></td>
+      <td>Canadian-listed</td>
+      <td><span class="badge b-unverified">unverified</span></td>
+    </tr>
+    
+    </tbody>
+  </table>
+  </div>
+  <p class="muted small">Click a column to sort. Fee = stated expense ratio (net where a waiver applies). † = third-party figure, not yet checked against the issuer. Premium/discount: bold = issuer-published (Sprott trusts); ≈ grey = indicative (closing price vs NAV struck earlier at the metal benchmark — not a true premium).</p>
+</section>
+
+<section>
+  <h2>Popular comparisons</h2>
+  <ul class="chips"><li><a href="/metalfundcompare/compare/gld-vs-gldm-vs-iau/">GLD vs GLDM vs IAU</a></li><li><a href="/metalfundcompare/compare/slv-vs-pslv-vs-sivr/">SLV vs PSLV vs SIVR</a></li><li><a href="/metalfundcompare/compare/gld-vs-gdx/">GLD vs GDX</a></li><li><a href="/metalfundcompare/compare/gld-vs-iau/">GLD vs IAU</a></li><li><a href="/metalfundcompare/compare/gld-vs-gldm/">GLD vs GLDM</a></li><li><a href="/metalfundcompare/compare/gldm-vs-iau/">GLDM vs IAU</a></li><li><a href="/metalfundcompare/compare/iau-vs-iaum/">IAU vs IAUM</a></li><li><a href="/metalfundcompare/compare/gldm-vs-iaum/">GLDM vs IAUM</a></li><li><a href="/metalfundcompare/compare/slv-vs-pslv/">SLV vs PSLV</a></li><li><a href="/metalfundcompare/compare/slv-vs-sivr/">SLV vs SIVR</a></li><li><a href="/metalfundcompare/compare/pslv-vs-sivr/">PSLV vs SIVR</a></li><li><a href="/metalfundcompare/compare/phys-vs-gld/">PHYS vs GLD</a></li><li><a href="/metalfundcompare/compare/">All comparisons →</a></li></ul>
+</section>
+
+</main>
+<section class="news wrap" id="newsletter">
+  <div>
+    <h2>Weekly metal-fund brief</h2>
+    <p>Fee cuts, new launches, discount moves and the biggest flows — one short email a week.</p>
+  </div>
+  <form class="signup" method="POST" action="https://app.kit.com/forms/10053925/subscriptions" accept-charset="UTF-8" data-kit-form="10053925">
+    <label class="sr" for="em-box">Email address</label>
+    <input id="em-box" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
+    <button type="submit">Subscribe</button>
+    <p class="signup-msg" role="status" aria-live="polite"></p>
+    <small>Your email goes to our newsletter provider, Kit. Unsubscribe anytime. <a href="/metalfundcompare/disclaimer/#privacy">Privacy</a></small>
+  </form>
+</section>
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Not investment, tax or legal advice.</strong> MetalFund Compare is an independent information site. Data can be delayed, incomplete or wrong — always check the fund's prospectus and the issuer's website before investing. Past performance does not predict future results. Numbers marked <span class="unv">†</span> come from third-party sources and have not yet been checked against the issuer.</p>
+    <p>Fund data compiled 2026-10-16 · Prices/NAV updated 2026-10-23 23:10 UTC · <a href="/metalfundcompare/methodology/">Methodology & sources</a> · <a href="/metalfundcompare/disclaimer/">Disclaimer</a> · <a href="/metalfundcompare/newsletter/">Newsletter</a></p>
+    <p class="muted">Affiliate disclosure: no affiliate links are active on this site. If added later, they will be labelled and will never affect rankings or data.</p>
+  </div>
+</footer>
+<script src="/metalfundcompare/static/signup.js" defer></script>
+<script src="/metalfundcompare/static/table.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fee drag calculator for gold &amp; silver ETFs | MetalFund Compare</title>
+<meta name="description" content="See how much an ETF expense ratio costs you over time. Compare up to three gold, silver or precious-metal funds.">
+<link rel="canonical" href="https://smith83975-sys.github.io/metalfundcompare/tools/fee-drag/">
+<meta property="og:title" content="Fee drag calculator for gold &amp; silver ETFs | MetalFund Compare">
+<meta property="og:description" content="See how much an ETF expense ratio costs you over time. Compare up to three gold, silver or precious-metal funds.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smith83975-sys.github.io/metalfundcompare/tools/fee-drag/">
+<link rel="stylesheet" href="/metalfundcompare/static/style.css">
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="/metalfundcompare/"><span class="logo">◆</span> MetalFund Compare</a>
+    <nav>
+      <a href="/metalfundcompare/">Funds</a><a href="/metalfundcompare/compare/">Compare</a><a href="/metalfundcompare/discounts/">Discounts</a><a href="/metalfundcompare/tools/fee-drag/">Fee calculator</a><a href="/metalfundcompare/tax/">Tax guide</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+
+<h1>Fee drag calculator</h1>
+<p class="lead">An expense ratio is taken every year, whatever the metal does. Pick up to three funds (or type your own fee) to see what fees cost you.</p>
+<section class="panel calc">
+  <div class="row">
+    <label>Amount invested ($)<input id="amt" type="number" value="10000" min="0" step="500"></label>
+    <label>Years held<input id="yrs" type="number" value="10" min="1" max="50"></label>
+    <label>Assumed metal price growth (%/yr)<input id="gr" type="number" value="0" step="0.5"></label>
+  </div>
+  <div class="row" id="picks"></div>
+  <div id="out"></div>
+  <p class="muted small">Method: ending value = amount × ((1 + growth) × (1 − fee))<sup>years</sup>; fee cost = value without fees − value with fees. Ignores trading costs, spreads, premiums/discounts and taxes. Fees marked † are third-party figures not yet verified with the issuer.</p>
+</section>
+
+</main>
+<section class="news wrap" id="newsletter">
+  <div>
+    <h2>Weekly metal-fund brief</h2>
+    <p>Fee cuts, new launches, discount moves and the biggest flows — one short email a week.</p>
+  </div>
+  <form class="signup" method="POST" action="https://app.kit.com/forms/10053925/subscriptions" accept-charset="UTF-8" data-kit-form="10053925">
+    <label class="sr" for="em-box">Email address</label>
+    <input id="em-box" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
+    <button type="submit">Subscribe</button>
+    <p class="signup-msg" role="status" aria-live="polite"></p>
+    <small>Your email goes to our newsletter provider, Kit. Unsubscribe anytime. <a href="/metalfundcompare/disclaimer/#privacy">Privacy</a></small>
+  </form>
+</section>
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Not investment, tax or legal advice.</strong> MetalFund Compare is an independent information site. Data can be delayed, incomplete or wrong — always check the fund's prospectus and the issuer's website before investing. Past performance does not predict future results. Numbers marked <span class="unv">†</span> come from third-party sources and have not yet been checked against the issuer.</p>
+    <p>Fund data compiled 2026-10-16 · Prices/NAV updated 2026-10-23 23:10 UTC · <a href="/metalfundcompare/methodology/">Methodology & sources</a> · <a href="/metalfundcompare/disclaimer/">Disclaimer</a> · <a href="/metalfundcompare/newsletter/">Newsletter</a></p>
+    <p class="muted">Affiliate disclosure: no affiliate links are active on this site. If added later, they will be labelled and will never affect rankings or data.</p>
+  </div>
+</footer>
+<script src="/metalfundcompare/static/signup.js" defer></script>
+<script>window.FUNDS=[{"t": "GLD", "n": "SPDR Gold Shares", "fee": 0.4, "s": "verified"}, {"t": "IAU", "n": "iShares Gold Trust", "fee": 0.25, "s": "verified"}, {"t": "GLDM", "n": "SPDR Gold MiniShares Trust", "fee": 0.1, "s": "verified"}, {"t": "SLV", "n": "iShares Silver Trust", "fee": 0.5, "s": "verified"}, {"t": "GDX", "n": "VanEck Gold Miners ETF", "fee": 0.51, "s": "verified"}, {"t": "PHYS", "n": "Sprott Physical Gold Trust", "fee": 0.39, "s": "verified"}, {"t": "PSLV", "n": "Sprott Physical Silver Trust", "fee": 0.52, "s": "verified"}, {"t": "GDXJ", "n": "VanEck Junior Gold Miners ETF", "fee": 0.52, "s": "verified"}, {"t": "IAUM", "n": "iShares Gold Trust Micro", "fee": 0.09, "s": "verified"}, {"t": "CEF", "n": "Sprott Physical Gold and Silver Trust", "fee": 0.48, "s": "verified"}, {"t": "SGOL", "n": "abrdn Physical Gold Shares ETF", "fee": 0.17, "s": "verified"}, {"t": "SIL", "n": "Global X Silver Miners ETF", "fee": 0.65, "s": "verified"}, {"t": "SIVR", "n": "abrdn Physical Silver Shares ETF", "fee": 0.3, "s": "verified"}, {"t": "SILJ", "n": "Amplify Junior Silver Miners ETF", "fee": 0.69, "s": "verified"}, {"t": "OUNZ", "n": "VanEck Merk Gold ETF", "fee": 0.25, "s": "verified"}, {"t": "AAAU", "n": "Goldman Sachs Physical Gold ETF", "fee": 0.18, "s": "verified"}, {"t": "GLTR", "n": "abrdn Physical Precious Metals Basket Shares ETF", "fee": 0.6, "s": "verified"}, {"t": "RING", "n": "iShares MSCI Global Gold Miners ETF", "fee": 0.39, "s": "verified"}, {"t": "PPLT", "n": "abrdn Physical Platinum Shares ETF", "fee": 0.6, "s": "verified"}, {"t": "BAR", "n": "GraniteShares Gold Trust", "fee": 0.1749, "s": "verified"}, {"t": "AGQ", "n": "ProShares Ultra Silver", "fee": 0.95, "s": "verified"}, {"t": "GDXU", "n": "MicroSectors Gold Miners 3X Leveraged ETN", "fee": 0.95, "s": "unverified"}, {"t": "NUGT", "n": "Direxion Daily Gold Miners Index Bull 2X ETF", "fee": 1.13, "s": "verified"}, {"t": "SLVP", "n": "iShares MSCI Global Silver and Metals Miners ETF", "fee": 0.39, "s": "verified"}, {"t": "UGL", "n": "ProShares Ultra Gold", "fee": 0.95, "s": "verified"}, {"t": "IAUI", "n": "NEOS Gold High Income ETF", "fee": 0.79, "s": "verified"}, {"t": "SLVR", "n": "Sprott Silver Miners & Physical Silver ETF", "fee": 0.65, "s": "verified"}, {"t": "SGDM", "n": "Sprott Gold Miners ETF", "fee": 0.46, "s": "verified"}, {"t": "IGLD", "n": "FT Vest Gold Strategy Target Income ETF", "fee": 0.85, "s": "verified"}, {"t": "PALL", "n": "abrdn Physical Palladium Shares ETF", "fee": 0.6, "s": "verified"}, {"t": "SPPP", "n": "Sprott Physical Platinum and Palladium Trust", "fee": 0.78, "s": "verified"}, {"t": "FGDL", "n": "Franklin Responsibly Sourced Gold ETF", "fee": 0.15, "s": "verified"}, {"t": "SLVO", "n": "UBS ETRACS Silver Shares Covered Call ETN", "fee": 0.65, "s": "unverified"}, {"t": "JNUG", "n": "Direxion Daily Junior Gold Miners Index Bull 2X ETF", "fee": 1.03, "s": "verified"}, {"t": "SGDJ", "n": "Sprott Junior Gold Miners ETF", "fee": 0.5, "s": "verified"}, {"t": "GDXY", "n": "YieldMax Gold Miners Option Income Strategy ETF", "fee": 1.0, "s": "verified"}, {"t": "DGP", "n": "DB Gold Double Long ETN", "fee": 0.75, "s": "unverified"}, {"t": "DBP", "n": "Invesco DB Precious Metals Fund", "fee": 0.77, "s": "unverified"}, {"t": "GOAU", "n": "U.S. Global GO GOLD and Precious Metal Miners ETF", "fee": 0.6, "s": "verified"}, {"t": "GLDI", "n": "UBS ETRACS Gold Shares Covered Call ETN", "fee": 0.65, "s": "unverified"}, {"t": "PLTM", "n": "GraniteShares Platinum Trust", "fee": 0.5, "s": "verified"}, {"t": "GBUG", "n": "Sprott Active Gold & Silver Miners ETF", "fee": 0.9, "s": "verified"}, {"t": "KGLD", "n": "Kurv Gold Enhanced Income ETF", "fee": 0.99, "s": "verified"}, {"t": "GDXD", "n": "MicroSectors Gold Miners -3X Inverse Leveraged ETN", "fee": 0.95, "s": "unverified"}, {"t": "GOEX", "n": "Global X Gold Explorers ETF", "fee": 0.65, "s": "verified"}, {"t": "KSLV", "n": "Kurv Silver Enhanced Income ETF", "fee": 0.99, "s": "verified"}, {"t": "GLL", "n": "ProShares UltraShort Gold", "fee": 0.95, "s": "verified"}, {"t": "SHNY", "n": "MicroSectors Gold 3X Leveraged ETN", "fee": 0.95, "s": "unverified"}, {"t": "DUST", "n": "Direxion Daily Gold Miners Index Bear 2X ETF", "fee": 0.99, "s": "verified"}, {"t": "GDXW", "n": "Roundhill Gold Miners WeeklyPay ETF", "fee": 0.99, "s": "verified"}, {"t": "SLJY", "n": "Amplify SILJ Junior Silver Miners Covered Call ETF", "fee": 0.76, "s": "verified"}, {"t": "ZSL", "n": "ProShares UltraShort Silver", "fee": 0.95, "s": "verified"}, {"t": "BGLD", "n": "FT Vest Gold Strategy Quarterly Buffer ETF", "fee": 0.91, "s": "verified"}, {"t": "JDST", "n": "Direxion Daily Junior Gold Miners Index Bear 2X ETF", "fee": 0.92, "s": "verified"}, {"t": "YGLD", "n": "Simplify Gold Strategy ETF", "fee": 0.53, "s": "verified"}, {"t": "USLV", "n": "Direxion Daily Silver Bull 2X ETF", "fee": 1.1, "s": "verified"}, {"t": "AUMI", "n": "Themes Gold Miners ETF", "fee": 0.35, "s": "verified"}, {"t": "GOLI", "n": "Defiance Gold Enhanced Options Income ETF", "fee": 1.04, "s": "verified"}, {"t": "GLDW", "n": "Roundhill Gold WeeklyPay ETF", "fee": 0.99, "s": "verified"}, {"t": "DULL", "n": "MicroSectors Gold -3X Inverse Leveraged ETN", "fee": 0.95, "s": "unverified"}, {"t": "UGLD", "n": "Direxion Daily Gold Bull 2X ETF", "fee": 1.07, "s": "verified"}, {"t": "USG", "n": "USCF Gold Strategy Plus Income Fund ETF", "fee": 0.45, "s": "unverified"}, {"t": "YSAU", "n": "Y'all Street Physical Gold ETF", "fee": 0.24, "s": "verified"}, {"t": "AUAU", "n": "Global X Gold Miners ETF", "fee": 0.35, "s": "verified"}, {"t": "NUGY", "n": "GraniteShares YieldBOOST Gold Miners ETF", "fee": 1.07, "s": "unverified"}, {"t": "YSAG", "n": "Y'all Street Physical Silver ETF", "fee": 0.39, "s": "verified"}, {"t": "SLVI", "n": "NEOS Silver High Income ETF", "fee": 0.78, "s": "verified"}, {"t": "DGZ", "n": "DB Gold Short ETN", "fee": 0.75, "s": "unverified"}, {"t": "SLVY", "n": "FT Vest Silver Strategy & Target Income ETF", "fee": 0.85, "s": "verified"}, {"t": "DZZ", "n": "DB Gold Double Short ETN", "fee": 0.75, "s": "unverified"}, {"t": "GDE", "n": "WisdomTree Efficient Gold Plus Equity Strategy Fund", "fee": 0.2, "s": "unverified"}, {"t": "GDMN", "n": "WisdomTree Efficient Gold Plus Gold Miners Strategy Fund", "fee": 0.45, "s": "unverified"}, {"t": "AGMI", "n": "Themes Silver Miners ETF", "fee": 0.35, "s": "verified"}];</script><script src="/metalfundcompare/static/calc.js" defer></script>
+</body>
+</html>
