@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology &amp; sources | MetalFund Compare</title>
+<meta name="description" content="Where every number on MetalFund Compare comes from and how it is checked.">
+<link rel="canonical" href="https://smith83975-sys.github.io/metalfundcompare/methodology/">
+<meta property="og:title" content="Methodology &amp; sources | MetalFund Compare">
+<meta property="og:description" content="Where every number on MetalFund Compare comes from and how it is checked.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smith83975-sys.github.io/metalfundcompare/methodology/">
+<link rel="stylesheet" href="/metalfundcompare/static/style.css">
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="/metalfundcompare/"><span class="logo">◆</span> MetalFund Compare</a>
+    <nav>
+      <a href="/metalfundcompare/">Funds</a><a href="/metalfundcompare/compare/">Compare</a><a href="/metalfundcompare/discounts/">Discounts</a><a href="/metalfundcompare/tools/fee-drag/">Fee calculator</a><a href="/metalfundcompare/tax/">Tax guide</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+
+<h1>Methodology &amp; sources</h1>
+<h2>Verification levels</h2>
+<ul>
+<li><b>issuer-verified</b> (31 funds): fee, assets and inception checked on the issuer's own website or SEC filings.</li>
+<li><b>partly verified</b> (28): fee checked against the issuer or SEC filing; some other fields from third parties.</li>
+<li><b>unverified</b> (21): mostly third-party data (e.g. etfdb.com). These numbers are shown with a † and a grey colour.</li>
+</ul>
+<p>When sources disagree, the issuer wins. Examples found while building this site: etfdb listed PSLV at 0.67% and PHYS at 0.41%; Sprott's own pages show MERs of 0.52% and 0.39%. SIVR's sponsor fee is 0.45% gross, reduced to 0.30% by a voluntary waiver the sponsor can end (SEC 10-Q, June 2026).</p>
+<h2>Data sources</h2>
+<ul>
+<li>Expense ratios: issuer fund pages; SEC 10-K/10-Q/424B3 filings (EDGAR).</li>
+<li>Assets &amp; NAV: SSGA NAV history files (GLD, GLDM), iShares product data (IAU, IAUM, SLV, RING, SLVP), Sprott trust pages, Aberdeen fund pages, U.S. Global and Y'all Street pages.</li>
+<li>Prices &amp; volume: Nasdaq historical quotes (daily close).</li>
+<li>Premium/discount: Sprott's published figure for its trusts; otherwise computed as close ÷ issuer NAV − 1 for the same date. Values beyond ±3% for ETFs are flagged "check" because they usually mean a date mismatch. Computed ETF values are labelled <i>indicative</i>: US metal trusts strike NAV at the metal benchmark earlier in the day, so the 4pm close vs NAV gap mostly reflects metal moves after the benchmark.</li>
+</ul>
+<h2>Update schedule</h2>
+<p>A script fetches the feeds at low volume (about 90 requests, ~1 second apart), caches raw responses, appends premium/discount history and rebuilds the site. Last run: 2026-10-30 23:11 UTC.</p>
+<details><summary>Last update log</summary><pre class="log">prices: done 75 tickers
+sprott: done
+ishares: done
+ssga: done
+aberdeen: done
+small issuers: done
+discount history rows: 740
+</pre></details>
+
+</main>
+<section class="news wrap" id="newsletter">
+  <div>
+    <h2>Weekly metal-fund brief</h2>
+    <p>Fee cuts, new launches, discount moves and the biggest flows — one short email a week.</p>
+  </div>
+  <form class="signup" method="POST" action="https://app.kit.com/forms/10053925/subscriptions" accept-charset="UTF-8" data-kit-form="10053925">
+    <label class="sr" for="em-box">Email address</label>
+    <input id="em-box" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
+    <button type="submit">Subscribe</button>
+    <p class="signup-msg" role="status" aria-live="polite"></p>
+    <small>Your email goes to our newsletter provider, Kit. Unsubscribe anytime. <a href="/metalfundcompare/disclaimer/#privacy">Privacy</a></small>
+  </form>
+</section>
+<footer class="foot">
+  <div class="wrap">
+    <p><strong>Not investment, tax or legal advice.</strong> MetalFund Compare is an independent information site. Data can be delayed, incomplete or wrong — always check the fund's prospectus and the issuer's website before investing. Past performance does not predict future results. Numbers marked <span class="unv">†</span> come from third-party sources and have not yet been checked against the issuer.</p>
+    <p>Fund data compiled 2026-10-16 · Prices/NAV updated 2026-10-30 23:11 UTC · <a href="/metalfundcompare/methodology/">Methodology & sources</a> · <a href="/metalfundcompare/disclaimer/">Disclaimer</a> · <a href="/metalfundcompare/newsletter/">Newsletter</a></p>
+    <p class="muted">Affiliate disclosure: no affiliate links are active on this site. If added later, they will be labelled and will never affect rankings or data.</p>
+  </div>
+</footer>
+<script src="/metalfundcompare/static/signup.js" defer></script>
+
+</body>
+</html>
